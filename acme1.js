@@ -19,19 +19,21 @@ const employees = [
   
   spacer('findEmployeeByName Moe')
   // given a name and array of employees, return employee
-  function findEmployeeByName(employee,array) {
-    for(let i =0; i <array.length; i++) {
-      if(array[i]['name']===employee) {
-        console.log(array[i])
-      }
-    }
-  
+  const findEmployeeByName = (name,arr) => {
+    const employee = arr.find((emp) => emp.name===name)
+    return employee;
   }
   console.log(findEmployeeByName('moe', employees));//{ id: 1, name: 'moe' }
   spacer('')
   
   spacer('findManagerFor Shep Jr.')
   //given an employee and a list of employees, return the employee who is the manager
+  const findManagerFor = (obj,arr) => {
+    const manager = arr.find((emp) => obj.managerId === emp.id);
+   
+    return(manager)
+  
+  }
   console.log(findManagerFor(findEmployeeByName('shep Jr.', employees), employees));//{ id: 4, name: 'shep', managerId: 2 }
   spacer('')
   
