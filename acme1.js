@@ -40,6 +40,11 @@ const employees = [
   spacer('findCoworkersFor Larry')
   
   //given an employee and a list of employees, return the employees who report to the same manager
+
+  const findCoworkersFor = (obj,arr) => {
+    const coworker = arr.filter((emp) => obj.managerId === emp.managerId);
+    return (coworker.filter((worker) => worker.id !== obj.id))
+  }
   console.log(findCoworkersFor(findEmployeeByName('larry', employees), employees));/*
   [ { id: 3, name: 'curly', managerId: 1 },
     { id: 99, name: 'lucy', managerId: 1 } ]
